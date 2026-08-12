@@ -1,0 +1,75 @@
+@page
+@model ManoloContactos.Pages.Contactos.DeleteModel
+
+@{
+    ViewData["Title"] = "Eliminar contacto";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow-sm">
+            <div class="card-header bg-danger text-white">
+                <h2 class="mb-0">Eliminar contacto</h2>
+            </div>
+
+            <div class="card-body">
+                <div class="alert alert-warning">
+                    <strong>¿Estás seguro de que deseas eliminar este contacto?</strong>
+                    <br />
+                    Esta acción no se puede deshacer.
+                </div>
+
+                <dl class="row mb-4">
+                    <dt class="col-sm-4">Cédula</dt>
+                    <dd class="col-sm-8">
+                        @Model.Contacto.Cedula
+                    </dd>
+
+                    <dt class="col-sm-4">Nombre</dt>
+                    <dd class="col-sm-8">
+                        @Model.Contacto.Nombre
+                    </dd>
+
+                    <dt class="col-sm-4">Apellidos</dt>
+                    <dd class="col-sm-8">
+                        @Model.Contacto.Apellidos
+                    </dd>
+
+                    <dt class="col-sm-4">Fecha de nacimiento</dt>
+                    <dd class="col-sm-8">
+                        @Model.Contacto.FechaNacimiento.ToString("dd/MM/yyyy")
+                    </dd>
+
+                    <dt class="col-sm-4">Edad</dt>
+                    <dd class="col-sm-8">
+                        <span class="badge bg-secondary">
+                            @Model.Contacto.Edad años
+                        </span>
+                    </dd>
+
+                    <dt class="col-sm-4">Teléfono</dt>
+                    <dd class="col-sm-8">
+                        @Model.Contacto.Telefono
+                    </dd>
+
+                    <dt class="col-sm-4">Dirección</dt>
+                    <dd class="col-sm-8">
+                        @Model.Contacto.Direccion
+                    </dd>
+                </dl>
+
+                <form method="post" class="d-flex gap-2">
+                    <input type="hidden" asp-for="Contacto.Id" />
+
+                    <button type="submit" class="btn btn-danger">
+                        Sí, eliminar contacto
+                    </button>
+
+                    <a asp-page="./Index" class="btn btn-secondary">
+                        Cancelar
+                    </a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

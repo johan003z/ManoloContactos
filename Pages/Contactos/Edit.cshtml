@@ -1,0 +1,84 @@
+@page
+@model ManoloContactos.Pages.Contactos.EditModel
+
+@{
+    ViewData["Title"] = "Editar contacto";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow-sm">
+            <div class="card-header bg-warning">
+                <h2 class="mb-0">Editar contacto</h2>
+            </div>
+
+            <div class="card-body">
+                <p class="text-muted">
+                    Modifica la información del contacto.
+                </p>
+
+                <form method="post">
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+
+                    <input type="hidden" asp-for="Contacto.Id" />
+
+                    <div class="mb-3">
+                        <label asp-for="Contacto.Cedula" class="form-label"></label>
+                        <input asp-for="Contacto.Cedula" class="form-control" />
+                        <span asp-validation-for="Contacto.Cedula" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Contacto.Nombre" class="form-label"></label>
+                        <input asp-for="Contacto.Nombre" class="form-control" />
+                        <span asp-validation-for="Contacto.Nombre" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Contacto.Apellidos" class="form-label"></label>
+                        <input asp-for="Contacto.Apellidos" class="form-control" />
+                        <span asp-validation-for="Contacto.Apellidos" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Contacto.FechaNacimiento" class="form-label">
+                            Fecha de nacimiento
+                        </label>
+                        <input asp-for="Contacto.FechaNacimiento"
+                               class="form-control"
+                               type="date" />
+                        <span asp-validation-for="Contacto.FechaNacimiento" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Contacto.Telefono" class="form-label"></label>
+                        <input asp-for="Contacto.Telefono" class="form-control" />
+                        <span asp-validation-for="Contacto.Telefono" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-4">
+                        <label asp-for="Contacto.Direccion" class="form-label"></label>
+                        <input asp-for="Contacto.Direccion" class="form-control" />
+                        <span asp-validation-for="Contacto.Direccion" class="text-danger"></span>
+                    </div>
+
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-warning">
+                            Guardar cambios
+                        </button>
+
+                        <a asp-page="./Index" class="btn btn-secondary">
+                            Volver a contactos
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

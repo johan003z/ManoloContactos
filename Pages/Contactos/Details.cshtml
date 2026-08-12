@@ -1,0 +1,70 @@
+@page
+@model ManoloContactos.Pages.Contactos.DetailsModel
+
+@{
+    ViewData["Title"] = "Detalles del contacto";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow-sm">
+            <div class="card-header bg-info text-white">
+                <h2 class="mb-0">Detalles del contacto</h2>
+            </div>
+
+            <div class="card-body">
+                <dl class="row mb-4">
+                    <dt class="col-sm-4">Cédula</dt>
+                    <dd class="col-sm-8">
+                        @Model.Contacto.Cedula
+                    </dd>
+
+                    <dt class="col-sm-4">Nombre</dt>
+                    <dd class="col-sm-8">
+                        @Model.Contacto.Nombre
+                    </dd>
+
+                    <dt class="col-sm-4">Apellidos</dt>
+                    <dd class="col-sm-8">
+                        @Model.Contacto.Apellidos
+                    </dd>
+
+                    <dt class="col-sm-4">Fecha de nacimiento</dt>
+                    <dd class="col-sm-8">
+                        @Model.Contacto.FechaNacimiento.ToString("dd/MM/yyyy")
+                    </dd>
+
+                    <dt class="col-sm-4">Edad</dt>
+                    <dd class="col-sm-8">
+                        <span class="badge bg-secondary">
+                            @Model.Contacto.Edad años
+                        </span>
+                    </dd>
+
+                    <dt class="col-sm-4">Teléfono</dt>
+                    <dd class="col-sm-8">
+                        @Model.Contacto.Telefono
+                    </dd>
+
+                    <dt class="col-sm-4">Dirección</dt>
+                    <dd class="col-sm-8">
+                        @Model.Contacto.Direccion
+                    </dd>
+                </dl>
+
+                <div class="d-flex gap-2">
+                    <a asp-page="./Edit"
+                       asp-route-id="@Model.Contacto.Id"
+                       class="btn btn-warning">
+                        Editar
+                    </a>
+
+                    <a asp-page="./Index"
+                       class="btn btn-secondary">
+                        Volver a contactos
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
